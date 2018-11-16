@@ -51,13 +51,13 @@ Video Type (vtype)
 
 vtype Available
 ~~~~~~~~~~~~
-.. code-block:: bash
-    1080mp4
-    720mp4
-    360mp4
-    2403gp
-    1443gp
-    128mp3
+
+* 1080mp4
+* 720mp4
+* 360mp4
+* 2403gp
+* 1443gp
+* 128mp3
 
 License
 -------
