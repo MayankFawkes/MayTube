@@ -8,7 +8,7 @@ Requirements
 ------------
 
 * Python **3.5** or higher
-* `requests <https://github.com/requests/requests>`_ pip install requests
+* "pip install requests" `requests <https://github.com/requests/requests>`_ 
 
 
 Installation
