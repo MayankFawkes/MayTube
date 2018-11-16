@@ -64,7 +64,7 @@ License
 
 Licensed under the Apache License, Version 2.0
 					
-					And
+And
 
     This is free and unencumbered software released into the public domain.    
 
@@ -90,6 +90,8 @@ Licensed under the Apache License, Version 2.0
     OTHER DEALINGS IN THE SOFTWARE.    
 
     For more information, please refer to <http://unlicense.org>
+
+
 
 
 *This product includes y2mate.com data created by Me, and Thanks to* `https://y2mate.com/ <https://y2mate.com/>`_.
