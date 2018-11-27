@@ -1,24 +1,57 @@
 import requests, re, os
-def YouTube(link="",vtype="720mp4"):
+from time import sleep
+class YouTube():
+	def __init__(self,link=""):
+		videos={}
+		url="https://y2mate.com/analyze/ajax"
+		headers={
+			"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.",
+			"Referer": "https://y2mate.com/",
+			"Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
+		}
+		data={
+			"url": "https://www.youtube.com/watch?v={}".format(link),
+			"ajax": "1"
+		}
+		yes=requests.post(url, data=data, headers=headers)
+		data=(yes.json()["result"])
+		self.find=re.findall("_id:'(.*?)'", data)
+	def Download(self,ftype="",fquality=""):
+		url="https://y2mate.com/convert"
+		headers={
+			"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.",
+			"Referer": "https://y2mate.com/",
+			"Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
+		}
+		data={
+			"type":"youtube",
+			"_id":"5bfb2d467527f8ed778b4568",
+			"v_id":"HVl0zT0fXes",
+			"ajax":"1",
+			"ftype":"mp4",
+			"fquality":"720"
+		}
+		data["_id"]=self.find[0]
+		data["v_id"]=self.find[1]
+		data["ftype"]=ftype
+		data["fquality"]=fquality
+		yes=requests.post(url, data=data, headers=headers)
+		data=(yes.json()["result"])
+		find=re.findall('href=\"(.*?)"', data)
+		if(find):
+			findf= find[0].split(".")
+			if(findf[-1] == ftype):
+				return find[0]
+			else:
+				return "Try Again"
 
-	videos={}
-	type={1:"1080mp4",2:"720mp4",3:"360mp4" ,4:"2403gp",5:"1443gp",6:"128mp3"}
-	url="https://y2mate.com/analyze/ajax"
-	headers={
-		"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.",
-
-	}
-	data={
-		"url": "https://www.youtube.com/watch?v={}".format(link),
-		"ajax": "1"
-	}
-	yes=requests.post(url, data=data, headers=headers)
-	data=(yes.json()["result"])
-	fi=re.findall("<td>(.*?)</td>",data)
-	#print(fi)
-	vis=re.findall('data-vlink="(.*?)" >',data)
-	c=0
-	for n,m in type.items():
-		videos[m]=vis[c]
-		c+=1
-	return (videos[vtype])
+		else:
+			yes=requests.post(url, data=data, headers=headers)
+			data=(yes.json()["result"])
+			find=re.findall('href=\"(.*?)"', data)
+			if(find):
+				findf= find[0].split(".")
+				if(findf[-1] == ftype):
+					return find[0]
+			else:
+				return "Try Again"
