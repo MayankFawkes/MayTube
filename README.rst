@@ -38,26 +38,29 @@ Sample Program With Chrome Installed in Windoes 10
     import os
     from MayTube import *
     def main():
-    	link=YouTube(link="Z9W2Xe1Xu8c",vtype="128mp3")
-	    command=str("start chrome {}{}{}".format('"',link,'"'))
-	    os.system(command)
-
+    	Video=YouTube(link="gLJy5njInoc").Download(ftype="mp4",fquality="720")
+	print(Video)
+	command=str("start chrome {}{}{}".format('"',Video,'"'))
+	os.system(command)
     if __name__ == "__main__":
-	    main()
+	main()
 
-Video Type (vtype)
+Class YouTube
 ----
-* YouTube(link="",vtype="720mp4") **720mp4** Default
+* Download(self,ftype="",fquality="")
+* __init__(self,link="")
 
-vtype Available
+vtype ,fquality Available
 ~~~~~~~~~~~~
 
-* 1080mp4
-* 720mp4
-* 360mp4
-* 2403gp
-* 1443gp
-* 128mp3
+* ftype="mp4",fquality="1080"
+* ftype="mp4",fquality="720"
+* ftype="mp4",fquality="480"
+* ftype="mp4",fquality="360"
+* ftype="mp4",fquality="240"
+* ftype="mp4",fquality="114"
+* ftype="mp3",fquality="128"
+* ftype="mp4",fquality="320"
 
 License
 -------
