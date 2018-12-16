@@ -60,7 +60,7 @@ vtype ,fquality Available
 * ftype="mp4",fquality="240"
 * ftype="mp4",fquality="114"
 * ftype="mp3",fquality="128"
-* ftype="mp4",fquality="320"
+* ftype="mp3",fquality="320"
 
 License
 -------
