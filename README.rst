@@ -38,7 +38,7 @@ Sample Program With Chrome Installed in Windoes 10
     import os
     from MayTube import *
     def main():
-    	Video=YouTube(link="gLJy5njInoc").Download(ftype="mp4",fquality="720")
+    	Video=YouTube(link="gLJy5njInoc").Download(ftype="mp4",fquality="720p")
 	print(Video)
 	command=str("start chrome {}{}{}".format('"',Video,'"'))
 	os.system(command)
@@ -54,7 +54,7 @@ vtype ,fquality Available
 ~~~~~~~~~~~~
 
 * ftype="mp4",fquality="1080"
-* ftype="mp4",fquality="720"
+* ftype="mp4",fquality="720p"
 * ftype="mp4",fquality="480"
 * ftype="mp4",fquality="360"
 * ftype="mp4",fquality="240"
