@@ -15,7 +15,7 @@ class YouTube():
 		}
 		yes=requests.post(url, data=data, headers=headers)
 		data=(yes.json()["result"])
-		self.find=re.findall("_id:'(.*?)'", data)
+		self.find=re.findall("_id: '(.*?)'", data)
 	def Download(self,ftype="",fquality=""):
 		url="https://y2mate.com/convert"
 		headers={
