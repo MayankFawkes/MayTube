@@ -37,21 +37,18 @@ class YouTube():
 		data["fquality"]=fquality
 		yes=requests.post(url, data=data, headers=headers)
 		data=(yes.json()["result"])
-		find=re.findall('href=\"(.*?)"', data)
+		find=re.findall('<a href="(.*?)"', data)
+		#print(find)
 		if(find):
-			findf= find[0].split(".")
-			if(findf[-1] == ftype):
-				return find[0]
-			else:
-				return "Try Again"
-
+			if("dl85.y2mate.com" in find[0].split("/")):
+				return (find[0])
 		else:
 			yes=requests.post(url, data=data, headers=headers)
 			data=(yes.json()["result"])
-			find=re.findall('href=\"(.*?)"', data)
+			find=re.findall('<a href="(.*?)"', data)
+			#print(find)
 			if(find):
-				findf= find[0].split(".")
-				if(findf[-1] == ftype):
-					return find[0]
+				if("dl85.y2mate.com" in find[0].split("/")):
+					return(find[0])
 			else:
-				return "Try Again"
+				return "try again"
