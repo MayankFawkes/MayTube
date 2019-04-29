@@ -40,7 +40,7 @@ class YouTube():
 		find=re.findall('<a href="(.*?)"', data)
 		#print(find)
 		if(find):
-			if("dl85.y2mate.com" in find[0].split("/")):
+			if("y2mate" in find[0].split(".")):
 				return (find[0])
 		else:
 			yes=requests.post(url, data=data, headers=headers)
@@ -48,7 +48,7 @@ class YouTube():
 			find=re.findall('<a href="(.*?)"', data)
 			#print(find)
 			if(find):
-				if("dl85.y2mate.com" in find[0].split("/")):
+				if("y2mate" in find[0].split(".")):
 					return(find[0])
 			else:
 				return "try again"
