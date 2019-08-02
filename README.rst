@@ -31,7 +31,7 @@ The latest development version can be installed directly from GitHub:
 Usage
 -----
 
-Sample Program With Chrome Installed in Windoes 10
+Sample Program With Chrome Installed in Windows 10
 
 .. code-block:: bash
 
