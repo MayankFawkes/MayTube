@@ -31,7 +31,7 @@ The latest development version can be installed directly from GitHub:
 Usage
 -----
 
-Sample Program With Chrome Installed in Windows 10
+Sample Program Installed in Windows 10
 
 .. code-block:: bash
 
@@ -40,7 +40,7 @@ Sample Program With Chrome Installed in Windows 10
     def main():
     	Video=YouTube(link="gLJy5njInoc").Download(ftype="mp4",fquality="720p")
 	print(Video)
-	command=str("start chrome {}{}{}".format('"',Video,'"'))
+	command=str("start {}{}{}".format('"',Video,'"'))
 	os.system(command)
     if __name__ == "__main__":
 	main()
