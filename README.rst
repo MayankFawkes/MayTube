@@ -50,7 +50,7 @@ Class YouTube
 * Download(self,ftype="",fquality="")
 * __init__(self,link="")
 
-vtype ,fquality Available
+ftype ,fquality Available
 ~~~~~~~~~~~~
 
 * ftype="mp4",fquality="1080"
