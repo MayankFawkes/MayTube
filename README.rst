@@ -31,7 +31,7 @@ The latest development version can be installed directly from GitHub:
 Usage
 -----
 
-Sample Program Installed in Windows 10
+Sample Program Tested in Windows 10
 
 .. code-block:: bash
 
