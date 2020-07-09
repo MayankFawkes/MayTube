@@ -1,7 +1,7 @@
 import requests, re, os
 from time import sleep
 from json import loads
-from random import choice
+from random import choice,randint
 from download import download
 
 class y2mate(download):
@@ -26,18 +26,14 @@ class y2mate(download):
 			self.Data_Gen={"url": f"https://www.youtube.com/watch?v={self.v_id}","q_auto": 0,"ajax": "1"}
 		if not new:
 			self.Data_Convert={"type":"youtube","_id":self._id,"v_id":self.v_id,"ajax":"1","ftype":self.ftype,"fquality":self.fquality}
-		# self.sub="mate"+str(choice([f"{i:02d}" for i in range(1,12)]))
-		self.sub="mate06"
+		self.sub="mate"+str(choice([f"{i:02d}" for i in range(1,12)]))
 	def _videourl(self,new:bool=False)->list:
 		if not new:
 			self._server()
 			gen=requests.post(self.Generate.format(self.sub), data=self.Data_Gen, headers=self.Headers).text
-			self.name=re.findall('var data_vtitle = "(.*?)";', gen.replace("\\",""))[0]
 			return re.findall("_id: '(.*?)'", gen)
 		if new:
 			self._server(False)
 			res=requests.post(self.Convert.format(self.sub), data=self.Data_Convert, headers=self.Headers)
-			self.name=f'{self.name}.{self.ftype}'.replace("|","")
-			print(self.Data_Convert)
-			print(loads(res.text))
+			self.name=f'{randint(10000000,99999999)}.{self.ftype}'
 			self.videolink=re.findall('<a href="(.*?)"',loads(res.text)['result'])[0]
